@@ -6,5 +6,14 @@ __pycache__/
 *.log
 run*.csv
 build/
+Debug/
+Release/
+training/input/
+training/input_board/
+training/output/
+training/output_board/
+.metadata/
+RemoteSystemsTempFiles/
+AX7020_SDK/tinycnn_app_bsp/ps7_cortexa9_0/
 .DS_Store
 Thumbs.db

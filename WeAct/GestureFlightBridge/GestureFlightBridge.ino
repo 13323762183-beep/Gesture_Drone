@@ -119,9 +119,7 @@ static void handleCommand(const CommandPacket &p) {
   strlcpy(activeAction, p.action, sizeof(activeAction));
   if (strcmp(p.action, "UNLOCK")) unlockReleased = true;
   if (!strcmp(p.action, "LAND")) {
-    stopRequested = true;
-    armDrone(false); sessionEnabled = false; unlockReleased = false; state = WAIT_LINK;
-    Serial.println("[FIST_STOP] immediate disarm requested; ENABLE required to restart");
+    startLanding("FIST");
     return;
   }
   if (!sessionEnabled) {
@@ -223,7 +221,10 @@ static void tickFlight() {
     applyFlyingAction(activeAction);
   } else if (state == LANDING) {
     manualControl(0, 0, FLIGHT_LAND_THROTTLE);
-    if (strcmp(activeAction, "LAND")) state = FLYING;
+    if (now - stateAt >= FLIGHT_LAND_MS) {
+      armDrone(false); sessionEnabled = false; unlockReleased = false; state = WAIT_LINK;
+      Serial.println("[LAND] timed disarm requested; ENABLE required to restart");
+    }
     if (!armed) { state = GROUNDED; strlcpy(activeAction, "STOP", sizeof(activeAction)); Serial.println("[LANDED]"); }
   } else if (state == GROUNDED) {
     manualControl(0, 0, 0);

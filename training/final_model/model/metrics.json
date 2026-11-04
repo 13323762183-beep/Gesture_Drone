@@ -1,0 +1,9 @@
+{
+  "device": "cpu",
+  "samples": 1233,
+  "variants": {},
+  "selected": "foreground",
+  "parameters": 5227,
+  "float_weight_bytes": 20908,
+  "model": "D:\\Liangchen\\TJU\\FPGA\\gesture_training_tool\\output_board\\model\\tiny_gesture_float.pt"
+}

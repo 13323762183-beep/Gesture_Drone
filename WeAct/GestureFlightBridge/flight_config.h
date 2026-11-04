@@ -3,12 +3,12 @@
 #define FLIGHT_OUTPUT_ENABLED true // Props-off motor integration test.
 
 /* Fill these five values after a tethered, props-off calibration. */
-#define FLIGHT_TAKEOFF_THROTTLE 0.5000f
-#define FLIGHT_HOVER_THROTTLE   0.5000f
-#define FLIGHT_LAND_THROTTLE    0.24f
-#define FLIGHT_THROTTLE_RATE    0.12f // normalized throttle per second (12%/s)
+#define FLIGHT_TAKEOFF_THROTTLE 0.45f
+#define FLIGHT_HOVER_THROTTLE   0.30f
+#define FLIGHT_LAND_THROTTLE    0.25f
+#define FLIGHT_THROTTLE_RATE    0.15f // normalized throttle per second (15%/s)
 #define FLIGHT_TAKEOFF_MS       0U
-#define FLIGHT_LAND_MS          0U
+#define FLIGHT_LAND_MS          5000U
 
 #define FLIGHT_MOVE_ROLL        0.07f
 #define FLIGHT_MOVE_PITCH       0.07f
